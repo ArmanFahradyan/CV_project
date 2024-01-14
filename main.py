@@ -1,7 +1,7 @@
 import os
 import cv2
 
-from sift import sift
+from sift import sift_matching
 from superglue import superglue
 from fast import fast
 
@@ -12,12 +12,14 @@ SECOND_DIRNAME = 'B'
 
 
 def main():
-    models = {"sift": sift,
+    models = {"sift": sift_matching,
               "superglue": superglue,
               "fast": fast}
 
     image_names = [file for file in os.listdir(os.path.join(DATASET_DIR, FIRST_DIRNAME)) if not file.startswith('.')]
 
+    if not os.path.exists(RESULTS_DIR):
+        os.mkdir(RESULTS_DIR)
     for model_name in models.keys():
         if not os.path.exists(os.path.join(RESULTS_DIR, model_name)):
             os.mkdir(os.path.join(RESULTS_DIR, model_name))
