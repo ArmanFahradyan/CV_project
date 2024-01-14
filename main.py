@@ -4,6 +4,8 @@ import cv2
 from sift import sift
 from superglue import superglue
 from fast import fast
+from surf import surf
+from orb import orb
 
 RESULTS_DIR = "results"
 DATASET_DIR = "dataset"
@@ -14,7 +16,9 @@ SECOND_DIRNAME = 'B'
 def main():
     models = {"sift": sift,
               "superglue": superglue,
-              "fast": fast}
+              "fast": fast,
+              "surf": surf,
+              "orb": orb}
 
     image_names = [file for file in os.listdir(os.path.join(DATASET_DIR, FIRST_DIRNAME)) if not file.startswith('.')]
 
