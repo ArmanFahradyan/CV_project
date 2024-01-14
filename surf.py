@@ -61,12 +61,4 @@ def surf(image1, image2):
     # The matches with shorter distance are the ones we want.
     matches = sorted(matches, key=lambda x: x.distance)
 
-    result = cv2.drawMatches(image1, image1_keypoints, image2_gray, image2_keypoints, matches, image2_gray, flags=2)
-
-    # Display the best matching points
-    plt.rcParams['figure.figsize'] = [14.0, 7.0]
-    plt.title('Best Matching Points')
-    plt.imshow(result)
-    plt.show()
-
-    print("\nNumber of Matching Keypoints Between The Images: ", len(matches))
+    return matches

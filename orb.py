@@ -58,13 +58,4 @@ def orb(image1, image2):
     # The matches with shorter distance are the ones we want.
     matches = sorted(matches, key = lambda x : x.distance)
 
-    result = cv2.drawMatches(image1, train_keypoints, image2_gray, test_keypoints, matches, image2_gray, flags = 2)
-
-    # Display the best matching points
-    plt.rcParams['figure.figsize'] = [14.0, 7.0]
-    plt.title('Best Matching Points')
-    plt.imshow(result)
-    plt.show()
-
-    # Print total number of matching points between the training and query images
-    print("\nNumber of Matching Keypoints Between The Training and Query Images: ", len(matches))
+    return matches
