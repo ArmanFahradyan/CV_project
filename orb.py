@@ -1,7 +1,5 @@
 import cv2
-import matplotlib.pyplot as plt
 import numpy as np
-%matplotlib inline
 
 def orb(image1, image2):
     # Convert the training image to RGB
@@ -24,7 +22,7 @@ def orb(image1, image2):
     # Create a Brute Force Matcher object.
     bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck = True)
 
-    # Perform the matching between the ORB descriptors of the training image and the test image
+    # Perform the matching between the ORB descriptors of the training image and the image2
     matches = bf.match(train_descriptor, test_descriptor)
 
     # The matches with shorter distance are the ones we want.
